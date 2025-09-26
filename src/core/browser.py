@@ -6,6 +6,7 @@
 
 import asyncio
 import time
+import os
 from typing import Optional, List, Dict, Any
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options

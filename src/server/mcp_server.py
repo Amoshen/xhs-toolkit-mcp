@@ -836,7 +836,7 @@ class MCPServer:
         
         # 使用stdio transport
         logger.info("🎯 MCP工具已注册，等待客户端连接...")
-        self.mcp.run_async(transport="stdio")
+        await self.mcp.run_async(transport="stdio")
     
     async def start(self) -> None:
         """启动MCP服务器"""
@@ -905,7 +905,7 @@ class MCPServer:
             logging.getLogger("uvicorn").setLevel(logging.WARNING)
             logging.getLogger("uvicorn.access").setLevel(logging.WARNING)
             
-            self.mcp.run_async(transport="sse", port=self.config.server_port, host=self.config.server_host)
+            await self.mcp.run_async(transport="sse", port=self.config.server_port, host=self.config.server_host)
             
         except KeyboardInterrupt:
             logger.info("👋 收到停止信号，正在关闭服务器...")
